@@ -1,11 +1,1108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
+
+    
+  
+    <title>Board Pack</title>
+
+    <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
+<!-- <link rel="icon" href="logo.png" type="image/png"> -->
+
+
+<style>
+       #contendorImg{ height: 90px; width: 100px; background-color: rgb(6, 6, 7); margin:2px ; border-radius: 5px;}
+       #imgsx{ height: 100px; width: 100px; border-radius: 5px;}
+       #domTextElement{  width: 90px; background-color: rgb(247, 244, 244);}
+       #codigobarras{height: 100px; width: 130px;} 
+       #Bmifoto{ max-height: 200px;}
+       
+
+input[type="checkbox"]:checked{
+  background-color:#198754;
+  border-color:#198754;
+  box-shadow: 0 0 0 0.25rem rgba(14, 202, 114, 0.25);
+}
+
+ 
+input[type="checkbox"]{ 
+  font-size: 15px;
+}
+
+.checkboxlabel{ 
+  font-size:15px; 
+}
+
+option:hover {
+  box-shadow: 0 0 10px 100px #198754 inset !important;
+  color:white;
+  border-radius: 5px;
+}
+  option:checked{
+  box-shadow: 0 0 10px 100px #198754 inset !important;
+  border-radius: 5px;
+}
+
+   
+
+  .icon {
+    width: 14px;
+    height: 14px;
+    fill:"#F90";
+  
+  }
+
+  .icontop{
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 50px;
+    /* height: 30px; */
+     /* background-color: rgb(156, 152, 146); */
+     /* color: #f70a0a; */
+    padding: 0px;
+    /* border-radius: 5px; */
+  }
+
+  .iconCount{
+    width: 14px;
+    height: 14px;
+    margin-bottom: 5px;
+  }
+
+
+ .iconsvg-stop{
+  width: 14px;
+  height: 14px;
+  fill: #e2e2e2;
+   /* filter: invert(18%) sepia(86%) saturate(5836%) hue-rotate(335deg) brightness(93%) contrast(95%);  */
+   /* filter: invert(65%) sepia(24%) saturate(7101%) hue-rotate(2deg) brightness(106%) contrast(104%); */
+   /* filter: invert(99%) sepia(0%) saturate(4104%) hue-rotate(150deg) brightness(113%) contrast(77%); */
+ }
+ .iconsvg-pick{
+  width: 14px;
+  height: 14px;
+  fill: #e2e2e2;
+   /* filter: invert(18%) sepia(86%) saturate(5836%) hue-rotate(335deg) brightness(93%) contrast(95%);  */
+   /* filter: invert(65%) sepia(24%) saturate(7101%) hue-rotate(2deg) brightness(106%) contrast(104%); */
+   /* filter: invert(99%) sepia(0%) saturate(4104%) hue-rotate(150deg) brightness(113%) contrast(77%); */
+ }
+ .iconsvg-solp{
+  width: 14px;
+  height: 14px;
+  fill: #e2e2e2;
+   /* filter: invert(18%) sepia(86%) saturate(5836%) hue-rotate(335deg) brightness(93%) contrast(95%);  */
+   /* filter: invert(65%) sepia(24%) saturate(7101%) hue-rotate(2deg) brightness(106%) contrast(104%); */
+   /* filter: invert(99%) sepia(0%) saturate(4104%) hue-rotate(150deg) brightness(113%) contrast(77%); */
+ }
+ .iconsvg-iq{
+  width: 14px;
+  height: 14px;
+  fill: #e2e2e2;
+   /* filter: invert(18%) sepia(86%) saturate(5836%) hue-rotate(335deg) brightness(93%) contrast(95%);  */
+   /* filter: invert(65%) sepia(24%) saturate(7101%) hue-rotate(2deg) brightness(106%) contrast(104%); */
+   /* filter: invert(99%) sepia(0%) saturate(4104%) hue-rotate(150deg) brightness(113%) contrast(77%); */
+ }
+
+ .iconsvg-ship{
+  width: 14px;
+  height: 14px;
+  fill: #e2e2e2;
+   /* filter: invert(18%) sepia(86%) saturate(5836%) hue-rotate(335deg) brightness(93%) contrast(95%);  */
+   /* filter: invert(65%) sepia(24%) saturate(7101%) hue-rotate(2deg) brightness(106%) contrast(104%); */
+   /* filter: invert(99%) sepia(0%) saturate(4104%) hue-rotate(150deg) brightness(113%) contrast(77%); */
+ }
+
+ .iconActivo{
+   /* color: #dc3545 !important; #198754*/
+  fill: #0e0d0d !important;
+ /* filter: invert(39%) sepia(36%) saturate(2053%) hue-rotate(318deg) brightness(83%) contrast(111%); */
+  /* filter: invert(43%) sepia(67%) saturate(456%) hue-rotate(100deg) brightness(85%) contrast(97%) */
+ }
+
+ .spanSvg{
+  font-size: x-small;
+  font-weight: 700;
+  color: #1d1c1c;
+  margin-left: 2px;
+ }
+
+
+  #count{
+    color:"#F90";
+  }
+   /* #cardCound{
+    width: 100px !important;
+  }  */
+
+  .iconnv{
+    width: 14px;
+    height: 14px;
+    fill:"#F90" !important;
+    color:"#F90" !important;
+    background-color: "#F90" !important;
+  }
+
+  .icons {
+    width: 14px;
+    height: 14px;
+    fill:"#fff";
+    margin-right: 2px;
+    margin-top: -5px;
+  
+  }
+
+  .text-warning{
+    color: #F90 !important;
+  }
+
+  .titulobm{
+    color: #fff;
+    text-decoration: none !important;;
+    list-style: none !important;
+    display: inline-flex !important;
+  }
+  .titulobm:hover{
+    color: #fff;
+    text-decoration: none !important;;
+    list-style: none !important;
+    display: inline-flex !important; 
+  }
+
+  .navbar{
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+  }
+  
+
+  .estacions{
+    color: #fff;
+  }
+
+  #estacionsX{
+    padding-bottom: 0px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    font-weight: 900;
+  }
+
+</style>
+
+
 </head>
-<body>
-   <div>Hola Mundo</div> 
+<body class="bg-dark">
+
+  <nav class="navbar text-decoration-none bg-success">
+    <div class="container-fluid">
+      <a class="navbar-brand titulobm text-decoration-none" href="#">
+        <svg class=""  width="60px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#F90" fill-rule="evenodd" d="M11.9924596,23.9397465 C8.83711397,23.9185077 6.03567124,22.8789612 3.53203329,20.9850151 C2.63838806,20.3088366 1.82646601,19.5437784 1.08564773,18.7032301 C1.0593301,18.6732188 1.01408224,18.6445926 1.01108111,18.6122727 C0.999538287,18.4963828 1.00253942,18.3793386 1,18.2627561 C1.10019169,18.278916 1.21815932,18.2662189 1.29780479,18.3156222 C1.96751928,18.7327798 2.61183957,19.1935692 3.29817573,19.5802537 C5.2872347,20.7005999 7.41480753,21.4266434 9.67581537,21.7720046 C10.8557226,21.9520726 12.0409395,22.0114027 13.2256946,21.9426075 C15.4894728,21.8114811 17.6530592,21.2481914 19.7120677,20.2936001 C20.0373444,20.1428508 20.3561571,19.9780193 20.6756624,19.8152656 C20.8303362,19.7363127 20.9829323,19.7039928 21.1142896,19.8425066 C21.2530343,19.9886387 21.247032,20.165013 21.1503032,20.3279977 C21.0948977,20.4217254 21.0106351,20.5020634 20.9279885,20.5757066 C19.0869085,22.2092467 16.9334797,23.2123179 14.5316495,23.6788787 C13.7001046,23.8404782 12.8480135,23.8958838 12.0051567,24 C12.0010013,23.9799155 11.996615,23.959831 11.9924596,23.9397465 M20.882048,18.8454608 C20.4263375,18.8890927 19.9207619,18.9387268 19.4149554,18.9848981 C19.3041444,18.9950558 19.1914864,19.0015197 19.0806753,18.9948249 C18.9532426,18.9872066 18.9329272,18.9087155 19.0026459,18.8159112 C19.0442,18.7605056 19.1065313,18.718028 19.1653996,18.6783207 C19.7005248,18.3191081 20.3062921,18.1618949 20.9339907,18.0787866 C21.5298312,17.9998337 22.124979,18.0183022 22.7074298,18.1743612 C23.1005783,18.2796317 23.186226,18.3269573 23.1569073,18.7845147 C23.0793395,19.9902778 22.691039,21.086615 21.8167857,21.9673322 C21.7719996,22.0125801 21.7297528,22.0707559 21.6743473,22.0926873 C21.6004732,22.1217752 21.5148255,22.1213135 21.4342566,22.1335489 C21.4361035,22.0601365 21.4208669,21.9809528 21.4427983,21.9142353 C21.6512617,21.2800727 21.8689593,20.6489112 22.0762683,20.0145177 C22.1178225,19.8873158 22.1335207,19.750418 22.1494498,19.6165213 C22.2002382,19.1887443 22.0291736,18.9735861 21.575079,18.9070995 C21.3631528,18.8761647 21.1479946,18.8683156 20.882048,18.8454608 M13.9965473,9.42010077 C13.1377614,9.41525279 12.3166051,9.45242067 11.5310007,9.71582785 C11.142931,9.84603088 10.7495517,10.0110932 10.4155024,10.2426422 C9.49276931,10.8818837 9.25267863,11.8334739 9.32863039,12.8935666 C9.36879941,13.4550094 9.53755546,13.9746672 9.95171189,14.381898 C10.5401649,14.9604242 11.5307698,15.0363759 12.3260702,14.5663522 C13.0193321,14.1565821 13.4325651,13.5242663 13.7008203,12.7873726 C14.0960465,11.7021166 13.9716148,10.5713818 13.9965473,9.42010077 M14.6290939,15.7725771 C14.3204389,16.0535293 14.0353312,16.3183217 13.744683,16.5768809 C12.627107,17.5707178 11.3066083,18.0146547 9.82427914,18.0444352 C9.01951364,18.0605951 8.22929209,17.9998799 7.47600757,17.7023059 C6.13427002,17.1720287 5.2787161,16.1915815 4.93173889,14.8002098 C4.5009608,13.0722494 4.64640035,11.4084672 5.66886346,9.89797358 C6.4246874,8.7815519 7.51779258,8.11783967 8.77988467,7.71153236 C9.86283216,7.36293915 10.983871,7.2101122 12.1092961,7.08406459 C12.726837,7.01480766 13.3450705,6.953169 13.9928536,6.88506635 C13.9734617,6.11169732 14.0833494,5.33578887 13.8116313,4.5880449 C13.5708481,3.92571782 13.0622714,3.58520459 12.3976357,3.43283935 C11.3913326,3.20221378 10.250671,3.57758633 9.70977435,4.37103986 C9.52624349,4.64044931 9.41404727,4.9684963 9.31547158,5.28407703 C9.17649601,5.72870651 8.97195721,5.87345349 8.51024436,5.81850966 C7.60782659,5.71162313 6.70333111,5.62297427 5.80091334,5.51747288 C5.35328272,5.46483761 5.17575413,5.20997212 5.26301786,4.77503861 C5.65986006,2.79567561 6.80629307,1.4123839 8.67207471,0.684262729 C10.8742142,-0.174984891 13.1252952,-0.241702398 15.3569843,0.578992199 C17.2063751,1.25909523 18.2221434,2.61445331 18.3574252,4.59243118 C18.402904,5.26006796 18.4093679,5.9311676 18.4121382,6.60088209 C18.4192948,8.33299786 18.4276056,10.0651136 18.4093679,11.7969985 C18.3992103,12.7615167 18.6667729,13.6175323 19.2531482,14.3791277 C19.3939706,14.5624277 19.5366399,14.7461894 19.6559926,14.9433408 C19.8538366,15.2702335 19.8009705,15.5181733 19.5149394,15.7649588 C18.7780456,16.4007374 18.0425371,17.0383629 17.3074902,17.67645 C16.9027989,18.0275826 16.6223083,18.0227347 16.2153085,17.6799129 C15.679029,17.2281268 15.2385549,16.6964645 14.8583344,16.1110126 C14.7890775,16.0043569 14.715896,15.9002407 14.6290939,15.7725771"/>
+        </svg>
+        Board Pack
+      </a>
+      <ul class="nav justify-content-end  px-2 ">
+        <li class="nav-item">
+          <div id="" class="btn" type="button">
+            <select id="pantalla"  class="form-select me-4" aria-label="Default select example">
+              <option selected>Select work area </option>
+              <option value="az5">LINE 05</option>
+              <option value="az6">LINE 06</option>
+              <option value="az7">LINE 07</option>
+              <option value="az8">LINE 08</option>
+              <option value="az9">LINE 09</option>
+              <option value="az10">LINE 10</option>
+              <option value="pack1">LINE 11-12</option>
+            </select>
+          </div>
+         
+        </li>
+        <li class="nav-item p-2">
+          <!-- <a class="nav-link active" aria-current="page" href="#">Refrescar</a> -->
+          <button id="Refrescars" class="btn btn-outline-light">
+            <svg xmlns="http://www.w3.org/2000/svg" class="iconnv" viewBox="0 0 512 512"><path fill="#F90" d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"/></svg>
+            Refresh
+          </button>
+        </li>
+        <li class="nav-item p-2">
+          <button id="delete" class="btn btn-outline-light">
+            <svg xmlns="http://www.w3.org/2000/svg" class="iconnv" viewBox="0 0 448 512"><path fill="#F90" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
+            Delete all
+          </button>
+        </li>
+        <li class="nav-item p-2">
+          <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#Temporarys">
+            <svg xmlns="http://www.w3.org/2000/svg"  class="iconnv" viewBox="0 0 640 512"><path fill="#F90" d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg>
+            Temporarys
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+    <div class="container-fluid text-center">
+        <div class="row" style="height: 90vh;">
+            <!-- de este lado estara la lista de los agregadosL  d-flex justify-content-center-->
+          <div  class="col-sm-9 bg-dark  overflow-auto" style="height: 90vh;" >
+            <div id="general" class="row d-flex justify-content-center"> </div>
+          </div>
+
+
+          <!-- de este lado ira el menu -->
+          <div class="col-sm-3  py-1  d-flex justify-content-center">
+            <div id="cardCound2" class="card" style="width: 20rem;">
+                <ul class="list-group list-group-flush">
+                  <div class="list-group-item">
+                    <div class="input-group flex-nowrap">
+                         <input id="domTextElement" type="text" value="a12345678998764321" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" onkeyup="getValueInput()">
+                         <span class="input-group-text" id="addon-wrapping">
+                        <button id="btnBuscar" type="button"  class="btn btn-dark" disabled>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 512 512"><path fill="#F90" d="M24 32C10.7 32 0 42.7 0 56V456c0 13.3 10.7 24 24 24H40c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24H24zm88 0c-8.8 0-16 7.2-16 16V464c0 8.8 7.2 16 16 16s16-7.2 16-16V48c0-8.8-7.2-16-16-16zm72 0c-13.3 0-24 10.7-24 24V456c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24H184zm96 0c-13.3 0-24 10.7-24 24V456c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24H280zM448 56V456c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24H472c-13.3 0-24 10.7-24 24zm-64-8V464c0 8.8 7.2 16 16 16s16-7.2 16-16V48c0-8.8-7.2-16-16-16s-16 7.2-16 16z"/></svg>
+                        </button>
+                         </span>
+                      </div>
+                </div>
+                  <div class="list-group-item">
+                    <div class="card" >
+                        <div id="Bmifoto" class="card-img-top "></div>
+                        <div class="card-body">
+
+
+                          <h5 id="Bnombre" class="card-text btn btn-dark btn-ms">ASSOCIATED</h5>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="list-group-item">
+                    <select id="IdUbicacion" class="form-select" multiple aria-label="multiple select example">
+                        <option selected>Estacion Asignada</option>
+                      </select>
+                    <div class="d-grid gap-2 col-12 mt-2">
+                      
+                        <button id="add" class="btn btn-dark estacions btn-ms" type="button">
+                          <svg xmlns="http://www.w3.org/2000/svg"  class="icon" viewBox="0 0 448 512"><path fill="#F90" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+                          Add
+                        </button>
+                       
+                      </div>
+
+                      <!-- de este lado ira el total de persona -->
+                      <div id="cuenta" class="d-grid gap-2  mt-2">
+                            <div  class="card-header bg-success">
+                              <h6  class="fw-bold text-light">COUNT</h6>
+                            </div>
+                           
+                         <div class="overflow-auto" style="height: 150px;">  
+                              <div  class=" bg-dark text-light rounded-2 d-flex">
+                                <span id="vlo5x" class="mx-5 fw-bold text-start">LINE-05</span>
+                                 <span class="text-end">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="iconCount" viewBox="0 0 448 512">
+                                      <path fill="#F90" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                                    </svg>
+                                    <span id="vlo5"class="fw-bold" >0</span>
+                                 </span>   
+                              </div>   
+                            <hr class="my-1 " style="height:1px; max-width: 80%; ">
+                            <div  class="bg-dark text-light rounded-2 d-flex">
+                              <span id="vlo6x" class="mx-5 fw-bold text-start">LINE-06</span>
+                               <span class="text-end">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="iconCount" viewBox="0 0 448 512">
+                                    <path fill="#F90" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                                  </svg>
+                                  <span id="vlo6"class="fw-bold" >0</span>
+                               </span>   
+                            </div> 
+                            <hr class="my-1" style="height:1px; max-width: 80%; ">
+                            <div  class="bg-dark text-light rounded-2 d-flex">
+                              <span id="vlo7x" class="mx-5 fw-bold text-start">LINE-07</span>
+                               <span class="text-end">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="iconCount" viewBox="0 0 448 512">
+                                    <path fill="#F90" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                                  </svg>
+                                  <span id="vlo7"class="fw-bold" >0</span>
+                               </span>   
+                            </div>  
+                            <hr class="my-1" style="height:1px; max-width: 80%; ">
+                            <div  class="bg-dark text-light rounded-2 d-flex">
+                              <span id="vlo8x" class="mx-5 fw-bold text-start">LINE-08</span>
+                               <span class="text-end">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="iconCount" viewBox="0 0 448 512">
+                                    <path fill="#F90" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                                  </svg>
+                                  <span id="vlo8"class="fw-bold" >0</span>
+                               </span>   
+                            </div> 
+                            <hr class="my-1" style="height:1px; max-width: 80%; ">
+                            <div  class="bg-dark text-light rounded-2 d-flex">
+                              <span id="vlo9x" class="mx-5 fw-bold text-start">LINE-09</span>
+                               <span class="text-end">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="iconCount" viewBox="0 0 448 512">
+                                    <path fill="#F90" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                                  </svg>
+                                  <span id="vlo9"class="fw-bold" >0</span>
+                               </span>   
+                            </div> 
+                            <hr class="my-1" style="height:1px; max-width: 80%; ">
+                            <div  class="bg-dark text-light rounded-2 d-flex">
+                              <span id="vlo10x" class="mx-5 fw-bold text-start">LINE-10</span>
+                               <span class="text-end">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="iconCount" viewBox="0 0 448 512">
+                                    <path fill="#F90" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                                  </svg>
+                                  <span id="vlo10"class="fw-bold" >0</span>
+                               </span>   
+                            </div> 
+                            <hr class="my-1" style="height:1px; max-width: 80%; ">
+                            <div  class="bg-dark text-light rounded-2 d-flex">
+                              <span id="vlo1112x" class="mx-5 fw-bold text-start">L-11/12</span>
+                               <span class="text-end">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="iconCount" viewBox="0 0 448 512">
+                                    <path fill="#F90" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                                  </svg>
+                                  <span id="vlo1112"class="fw-bold" >0</span>
+                               </span>   
+                            </div> 
+
+                         
+                          </div> 
+              
+              
+                       
+                      </div>
+
+                     
+
+                  </div>
+                </ul>
+              </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- ----------------------modal---bootrap------------------------------------------->
+    
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+          Open modal
+        </button> -->
+      </div>
+      
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content modal-sm p-2">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 id="modalUbicacion" class="modal-title">UBICACION</h4>
+              <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div id="modelCard"></div>
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+      
+          </div>
+        </div>
+
+
+        <!-- -------------------------modal-anadir-persona--------------------------------------- -->
+      
+      </div>
+      <!-- The Modal -->
+      <div class="modal " id="Temporarys">
+        <div class="modal-dialog ">
+          <div class="modal-content  p-2 bg-dark text-light">
+      
+            <!-- Modal Header -->
+            <div class="modal-header bg-success">
+              <h4 class="modal-title text-light">Temporary</h4>
+              <button type="button" class="btn-close text-light bg-light" data-bs-dismiss="modal"></button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="row g-2 align-items-center mb-1">
+                <div class="col-auto"><label class="col-form-label">Login</label></div>
+                <div class="col-auto"> <input type="text" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp"></div>
+                <div class="col-auto"><label class="col-form-label">Cod</label></div>
+                <div class="col-auto"> <input type="text" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp"></div>
+              </div>
+
+              <form>
+                <div class="mb-1">
+                  <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                  <input type="text" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text"></div>
+                </div>
+                <div class="mb-1">
+                  <label for="exampleInputEmail1" class="form-label">Apellido</label>
+                  <input type="text" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Departamento</label>
+                  <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                  <option selected>De donde vines</option>
+                  <option value="1">Picking</option>
+                  <option value="2">Solp</option>
+                  <option value="3">Chip</option>
+                  <option value="3">IQs</option>
+                  </select>
+                </div>
+                <div class="mt-3">
+                  <label for="exampleInputEmail1" class="form-label">Permisos</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="checkboxPiking" value="option1">
+                  <label class="form-check-label checkboxlabel" for="inlineCheckbox1">Piking</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="checkboxPack" value="option1">
+                  <label class="form-check-label checkboxlabel" for="inlineCheckbox1">Pack</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="checkboxChip" value="option2">
+                  <label class="form-check-label checkboxlabel" for="inlineCheckbox2">Chip</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="checkboxIQs" value="option1">
+                  <label class="form-check-label checkboxlabel" for="inlineCheckbox1">IQs</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="checkboxSolp" value="option2">
+                  <label class="form-check-label checkboxlabel" for="inlineCheckbox2">Solp</label>
+                </div>
+
+              </form>
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" >
+                <svg xmlns="http://www.w3.org/2000/svg"  class="icon" viewBox="0 0 448 512">
+                  <path fill="#F90" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+                  Add
+              </button>
+            </div>
+      
+          </div>
+        </div>
+
+      <!-- ---------------------fina--del--modal------------------------------------------->
 </body>
+
+<script>
+
+
+// $(document).ready(function() {
+//       var refreshId =  setInterval( function(){
+//   //  document.getElementById('general').load;
+//     console.log('kk');
+//     totalItem();
+//    }, 5000 );
+// });
+const station05=  ['Leader','ws','05-01','05-02','05-03','05-04','05-05','05-06','05-07','05-08','05-09','05-10','05-11','05-12','05-13','05-14','05-15','05-16','05-17','05-18','05-19','05-20']
+const station06=  ['Leader','ws','06-01','06-02','06-03','06-04','06-05','06-06','06-07','06-08','06-09','06-10','06-11','06-12','06-13','06-14','06-15','06-16','06-17','06-18','06-19','06-20']
+const station07=  ['Leader','ws','07-03','07-04','07-05','07-06','07-07','07-08','07-09','07-10','07-11','07-12','07-13','07-14','07-15','07-16','07-17','07-18','07-19','07-20']
+const station08=  ['Leader','ws','08-03','08-04','08-05','08-06','08-07','08-08','08-09','08-10','08-11','08-12','08-13','08-14','08-15','08-16','08-17','08-18','08-19','08-20']
+const station09=  ['Leader','ws','09-03','09-04','09-05','09-06','09-07','09-08','09-09','09-10','09-11','09-12','09-13','09-14','09-15','09-16','09-17','09-18','09-19','09-20']
+const station10=  ['Leader','ws','10-03','10-04','10-05','10-06','10-07','10-08','10-09','10-10','10-11','10-12','10-13','10-14','10-15','10-16','10-17','10-18','10-19','10-20']
+const station1112=['Leader','ws','11-01','11-03','11-05','11-07','11-09','11-11','11-13','11-15','11-17','11-19','11-21','11-23','11-25','11-27','12-02','12-04','12-06','12-08','12-10','12-12','12-14','12-16','12-18','12-20','12-22','12-24','12-26','12-28']
+ 
+
+const az5=[/*{ubicacion:"11-28" ,log: "alogt2020inz",  nombre:"marisa", apellido: "castro", codtrabajo: "a12345678998764321", fotoA:"a"}*/]
+const az6=[/*{ubicacion:"11-27" ,log: "blogt2020inz",  nombre:"Marcos", apellido: "Cornelio", codtrabajo: "b12345678998764321", fotoA:"b"}*/]
+const az7=[/*{ubicacion:"11-26" ,log: "cornelyx",  nombre:"Yunior P", apellido: "Cornelio", codtrabajo: "ycr123456789", fotoA:"c"}*/]
+const az8=[/*{ubicacion:"11-28" ,log: "alogt2020inz",  nombre:"marisa", apellido: "castro", codtrabajo: "a12345678998764321", fotoA:"a"}*/]
+const az9=[/*{ubicacion:"11-28" ,log: "alogt2020inz",  nombre:"marisa", apellido: "castro", codtrabajo: "a12345678998764321", fotoA:"a"}*/]
+const az10=[/*{ubicacion:"11-28" ,log: "alogt2020inz",  nombre:"marisa", apellido: "castro", codtrabajo: "a12345678998764321", fotoA:"a"}*/]
+const pack1=[/*{ubicacion:"11-26" ,log: "cornelyx",  nombre:"Ynior P", apellido: "Cornelio", codtrabajo: "ycr123456789", fotoA:"b"}*/]
+
+if(localStorage.getItem("pack1") == null){
+   localStorage.setItem("pack1",JSON.stringify(pack1)); /// insertar en el localStora
+   localStorage.setItem("az5",JSON.stringify(az5));
+   localStorage.setItem("az6",JSON.stringify(az6));
+   localStorage.setItem("az7",JSON.stringify(az7));
+   localStorage.setItem("az8",JSON.stringify(az8));
+   localStorage.setItem("az9",JSON.stringify(az9));
+   localStorage.setItem("az10",JSON.stringify(az10));
+   BD_localStorage();
+}else{
+   // datoslocales();
+}
+
+
+
+///calcular el total de cada linea
+totalItem();
+function totalItem() {
+ let _az5 = JSON.parse(localStorage.getItem('az5'));
+ _az5.forEach((b,f )=>{ document.getElementById('vlo5').innerHTML = f+1})
+
+ let _az6 = JSON.parse(localStorage.getItem('az6'));
+ _az6.forEach((b,f )=>{ document.getElementById('vlo6').innerHTML = f+1})
+
+ let _az7 = JSON.parse(localStorage.getItem('az7'));
+ _az7.forEach((b,f )=>{ document.getElementById('vlo7').innerHTML = f+1})
+
+ let _az8 = JSON.parse(localStorage.getItem('az8'));
+ _az8.forEach((b,f )=>{ document.getElementById('vlo8').innerHTML = f+1})
+
+ let _az9 = JSON.parse(localStorage.getItem('az9'));
+ _az9.forEach((b,f )=>{ document.getElementById('vlo9').innerHTML = f+1})
+
+ let _az10 = JSON.parse(localStorage.getItem('az10'));
+ _az10.forEach((b,f )=>{ document.getElementById('vlo10').innerHTML = f+1})
+
+ let _az1112 = JSON.parse(localStorage.getItem('pack1'));
+ _az1112.forEach((b,f )=>{ document.getElementById('vlo1112').innerHTML = f+1})
+  
+}
+
+function BD_localStorage() {
+
+  const azPackUser={
+    a12345678998764321:{login: "alogt2020inA", pick:"iconActivo", stop:"iconActivo",  iq:"iconActivo",    solp:"",            ship:"",           nombre:"Ricardo Alexis",  apellido: "Rosario",   codtrabajo: "A12345678998764321", fotoA:"a"},
+    b12345678998764321:{login: "alogt2020inB", pick:"iconActivo", stop:"",            iq:"iconActivo",    solp:"iconActivo",  ship:"iconActivo", nombre:"Marisa Benaida",  apellido: "Castro",    codtrabajo: "B12345678998764321", fotoA:"b"},
+    c12345678998764321:{login: "alogt2020inC", pick:"iconActivo", stop:"iconActivo",  iq:"iconActivo",    solp:"iconActivo",  ship:"iconActivo", nombre:"Pedro Colito",    apellido: "Crornelio", codtrabajo: "C12345678998764321", fotoA:"c"},
+              cornelyx:{login: "cornelyx4",    pick:"iconActivo", stop:"",            iq:"iconActivo",    solp:"",            ship:"iconActivo", nombre:"Yunior prospero", apellido: "Perez",     codtrabajo: "D12345678998764321", fotoA:"a"},
+  }
+
+  // const azPackUser={
+  //   a12345678998764321:{login: "alogt2020inA", pick:"PICK", stop:"STOP",    iq:"IQS",    solp:"SOLP",    nombre:"Ricardo Alexis",  apellido: "Rosario",   codtrabajo: "A12345678998764321", fotoA:"a"},
+  //   b12345678998764321:{login: "alogt2020inB", pick:"PICK", stop:"STOP",    iq:"NOT",    solp:"NOT",    nombre:"Marisa Benaida",  apellido: "Castro",    codtrabajo: "B12345678998764321", fotoA:"b"},
+  //   c12345678998764321:{login: "alogt2020inC", pick:"PICK", stop:"NOT",    iq:"IQS",    solp:"NOT",    nombre:"Pedro Colito",    apellido: "Crornelio", codtrabajo: "C12345678998764321", fotoA:"c"},
+  //             cornelyx:{login: "cornelyx4",    pick:"PICK", stop:"STOP",    iq:"IQS",    solp:"SOLP",    nombre:"Yunior prospero", apellido: "Perez",     codtrabajo: "D12345678998764321", fotoA:"a"},
+  // }
+   
+   localStorage.setItem("azPackUser",JSON.stringify(azPackUser));
+
+}
+
+
+let card_ubicacions;
+var select = document.getElementById("IdUbicacion");
+select.addEventListener("change", function(){
+  var selectedOption = this.options[select.selectedIndex];
+  //console.log("Option selected: " + selectedOption.value);
+  card_ubicacions = selectedOption.value;
+  //console.log( card_ubicacions);
+});
+
+//  Mostrar las diferentes pantallas
+var mypantalla = document.getElementById("pantalla");
+var listaUno = document.getElementById("IdUbicacion");
+mypantalla.addEventListener('change',()=>{
+ document.getElementById("general").innerHTML="";
+ listaUno.innerHTML="";
+  var vl = mypantalla.options[mypantalla.selectedIndex];
+  var valorBuscado = vl.value;
+  if(valorBuscado != null){
+    if(valorBuscado == "11-12"){
+      let pack = "pack1"
+      datoslocales(pack)
+    }else{
+      datoslocales(valorBuscado)
+    }
+    
+  }else{
+    document.location.reload();
+  }
+  
+  //vl.value = "";
+  //$( "#mostrardatos" ).load(window.location.href + " #mostrardatos" );
+  var nomb = vl.text
+  var ultimoNombre = nomb.slice(5);
+ //  CambiarSelect(ultimoNombre)
+ // console.log("posicion "+vl.value + ': texto ' + vl.text +'-:> '+ultimoNombre);
+  var mypack = vl.value;
+  listaUno = document.getElementById("IdUbicacion");
+ if(mypack == 'pack1'){
+  midata =  eval(station1112);
+  midataIndex = midata.length;
+ for (let e = 0; e < midataIndex; e++) {
+    var opt = document.createElement('option');
+    opt.innerHTML = 'station: '+midata[e];
+    opt.value = midata[e];
+    listaUno.appendChild(opt);
+   }
+
+ }else{
+  //listaUno = document.getElementById("IdUbicacion");
+ // console.log('works: '+ultimoNombre);
+  midata =  eval('station'+ultimoNombre);
+  midataIndex = midata.length;
+ for (let e = 0; e < midataIndex; e++) {
+    var opt = document.createElement('option');
+    opt.innerHTML = 'station: '+midata[e];
+    opt.value = midata[e];
+    listaUno.appendChild(opt);
+  }
+ 
+ }
+ 
+ 
+});
+
+
+document.getElementById('Refrescars').addEventListener('click', ()=>{
+  document.location.reload();
+})
+
+document.getElementById("add").addEventListener('click', ()=>{ 
+  document.getElementById("general").innerHTML="";
+  let card_codTrabajo = document.getElementById("domTextElement").value;
+if(card_codTrabajo != ""){
+  ///let card_Locar = JSON.parse(localStorage.getItem(card_codTrabajo));
+  let users = localStorage.getItem('azPackUser')
+  users = JSON.parse(users)
+  let clogin= users[card_codTrabajo].login
+  let cnombre= users[card_codTrabajo].nombre 
+  let capellido= users[card_codTrabajo].apellido 
+  let ccodtrabajo= users[card_codTrabajo].codtrabajo 
+  let cfotoA= users[card_codTrabajo].fotoA
+  let cpick= users[card_codTrabajo].pick
+  let cstop= users[card_codTrabajo].stop
+  let ciq= users[card_codTrabajo].iq
+  let csolp= users[card_codTrabajo].solp
+  let cship= users[card_codTrabajo].ship
+  let ctime= "00:00"
+
+    if(card_ubicacions != null){
+            //var num = card_ubicacions.substring(0,card_ubicacions.length -3 );
+            var lineaUbicado = document.getElementById("pantalla");
+            var vl = lineaUbicado.options[lineaUbicado.selectedIndex];
+            const fx = lineaUbicado.options = vl.text;
+            var num = fx.slice(5,7 );
+           // console.log(num);
+            switch (num) {
+              case '05':
+                NoRepetir('az5',card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime)
+                // AddLista('az5',card_ubicacions, clogin, cpick, cstop,ciq, csolp, cnombre, capellido, ccodtrabajo, cfotoA);
+                break;
+              case '06':
+                NoRepetir('az6',card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+                break;
+              case '07':
+                NoRepetir('az7',card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+                break;
+              case '08':
+                NoRepetir('az8',card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+                break;
+              case '09':
+                NoRepetir('az9',card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+                break;
+              case '10':
+                NoRepetir('az10',card_ubicacions,clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+                break;
+              case '11':
+                NoRepetir('pack1',card_ubicacions,clogin,cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+                break;
+              case '12':
+                NoRepetir('pack1',card_ubicacions,clogin,cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+                break;
+              default:
+                 // document.location.reload();
+                break;
+            }
+
+
+  var sect = document.getElementById("pantalla");
+  var vl = sect.options[sect.selectedIndex];
+  const f = sect.options = vl.value;
+ //// console.log(f +' '+vl.text);
+  datoslocales(f)      
+            /// document.location.reload();
+            }else{ alert('Selecione una estacion, por favor'); }
+    
+    totalItem();
+}else{ alert('inserte el codigo del asociado, por favor'); }
+
+ //window.location.reload();
+  
+});
+
+
+
+
+function NoRepetir(estacion,card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime) {
+
+   var ub = document.getElementById("IdUbicacion");
+   var dts = ub.options[ub.selectedIndex];
+   var asar = ub.options = dts.value;
+
+   let buscarDT = JSON.parse(localStorage.getItem(estacion));
+   if(buscarDT == ""){
+    // AddLista(estacion,card_ubicacions, clogin, cpick, cstop,ciq, csolp, cnombre, capellido, ccodtrabajo, cfotoA);
+       //console.log('insertado incorrecto');
+   }
+
+   const exists = buscarDT.some(({ubicacion}) => ubicacion === asar);
+   // console.log(buscarDT);
+    if(exists == true){
+      for (let index = 0; index < buscarDT.length; index++) {
+        const element = buscarDT[index];
+        if (element.ubicacion == asar) {
+            console.log('Ocupado por'+ element.nombre);
+           
+           // document.getElementById('modalNombre').innerHTML = element.nombre;
+            document.getElementById('modalUbicacion').innerHTML = "Station Occupied By";
+            document.getElementById('modelCard').innerHTML =`
+            <div class="card border-success m-1" style="max-width: 15rem;">
+       <div class="card-header bg-transparent border-success">
+         <div class="row ">
+           <div class=" text-center bg-danger rounded-2 ubicacionClass">
+               <p id="estacionsX" class="estacions">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 448 512"><path  fill="#FFF" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                 ${element.ubicacion}
+                </p>
+           </div>
+           <div class=" text-center">
+            <p id="loginID" class="mb-0">${element.log}</p>
+           </div>
+         </div>
+       </div>
+       <div class="row text-success">
+         <div class="col-md-4" >
+           <div id="contendorImg" class="img-fluid rounded-start">
+            <!--<div id="mifoto"><img  id="imgsx" src="img/a.jpeg" /></div>-->
+            <div id="mifoto">    
+              <svg class="mt-3"  width="50px" height="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#F90" fill-rule="evenodd" d="M11.9924596,23.9397465 C8.83711397,23.9185077 6.03567124,22.8789612 3.53203329,20.9850151 C2.63838806,20.3088366 1.82646601,19.5437784 1.08564773,18.7032301 C1.0593301,18.6732188 1.01408224,18.6445926 1.01108111,18.6122727 C0.999538287,18.4963828 1.00253942,18.3793386 1,18.2627561 C1.10019169,18.278916 1.21815932,18.2662189 1.29780479,18.3156222 C1.96751928,18.7327798 2.61183957,19.1935692 3.29817573,19.5802537 C5.2872347,20.7005999 7.41480753,21.4266434 9.67581537,21.7720046 C10.8557226,21.9520726 12.0409395,22.0114027 13.2256946,21.9426075 C15.4894728,21.8114811 17.6530592,21.2481914 19.7120677,20.2936001 C20.0373444,20.1428508 20.3561571,19.9780193 20.6756624,19.8152656 C20.8303362,19.7363127 20.9829323,19.7039928 21.1142896,19.8425066 C21.2530343,19.9886387 21.247032,20.165013 21.1503032,20.3279977 C21.0948977,20.4217254 21.0106351,20.5020634 20.9279885,20.5757066 C19.0869085,22.2092467 16.9334797,23.2123179 14.5316495,23.6788787 C13.7001046,23.8404782 12.8480135,23.8958838 12.0051567,24 C12.0010013,23.9799155 11.996615,23.959831 11.9924596,23.9397465 M20.882048,18.8454608 C20.4263375,18.8890927 19.9207619,18.9387268 19.4149554,18.9848981 C19.3041444,18.9950558 19.1914864,19.0015197 19.0806753,18.9948249 C18.9532426,18.9872066 18.9329272,18.9087155 19.0026459,18.8159112 C19.0442,18.7605056 19.1065313,18.718028 19.1653996,18.6783207 C19.7005248,18.3191081 20.3062921,18.1618949 20.9339907,18.0787866 C21.5298312,17.9998337 22.124979,18.0183022 22.7074298,18.1743612 C23.1005783,18.2796317 23.186226,18.3269573 23.1569073,18.7845147 C23.0793395,19.9902778 22.691039,21.086615 21.8167857,21.9673322 C21.7719996,22.0125801 21.7297528,22.0707559 21.6743473,22.0926873 C21.6004732,22.1217752 21.5148255,22.1213135 21.4342566,22.1335489 C21.4361035,22.0601365 21.4208669,21.9809528 21.4427983,21.9142353 C21.6512617,21.2800727 21.8689593,20.6489112 22.0762683,20.0145177 C22.1178225,19.8873158 22.1335207,19.750418 22.1494498,19.6165213 C22.2002382,19.1887443 22.0291736,18.9735861 21.575079,18.9070995 C21.3631528,18.8761647 21.1479946,18.8683156 20.882048,18.8454608 M13.9965473,9.42010077 C13.1377614,9.41525279 12.3166051,9.45242067 11.5310007,9.71582785 C11.142931,9.84603088 10.7495517,10.0110932 10.4155024,10.2426422 C9.49276931,10.8818837 9.25267863,11.8334739 9.32863039,12.8935666 C9.36879941,13.4550094 9.53755546,13.9746672 9.95171189,14.381898 C10.5401649,14.9604242 11.5307698,15.0363759 12.3260702,14.5663522 C13.0193321,14.1565821 13.4325651,13.5242663 13.7008203,12.7873726 C14.0960465,11.7021166 13.9716148,10.5713818 13.9965473,9.42010077 M14.6290939,15.7725771 C14.3204389,16.0535293 14.0353312,16.3183217 13.744683,16.5768809 C12.627107,17.5707178 11.3066083,18.0146547 9.82427914,18.0444352 C9.01951364,18.0605951 8.22929209,17.9998799 7.47600757,17.7023059 C6.13427002,17.1720287 5.2787161,16.1915815 4.93173889,14.8002098 C4.5009608,13.0722494 4.64640035,11.4084672 5.66886346,9.89797358 C6.4246874,8.7815519 7.51779258,8.11783967 8.77988467,7.71153236 C9.86283216,7.36293915 10.983871,7.2101122 12.1092961,7.08406459 C12.726837,7.01480766 13.3450705,6.953169 13.9928536,6.88506635 C13.9734617,6.11169732 14.0833494,5.33578887 13.8116313,4.5880449 C13.5708481,3.92571782 13.0622714,3.58520459 12.3976357,3.43283935 C11.3913326,3.20221378 10.250671,3.57758633 9.70977435,4.37103986 C9.52624349,4.64044931 9.41404727,4.9684963 9.31547158,5.28407703 C9.17649601,5.72870651 8.97195721,5.87345349 8.51024436,5.81850966 C7.60782659,5.71162313 6.70333111,5.62297427 5.80091334,5.51747288 C5.35328272,5.46483761 5.17575413,5.20997212 5.26301786,4.77503861 C5.65986006,2.79567561 6.80629307,1.4123839 8.67207471,0.684262729 C10.8742142,-0.174984891 13.1252952,-0.241702398 15.3569843,0.578992199 C17.2063751,1.25909523 18.2221434,2.61445331 18.3574252,4.59243118 C18.402904,5.26006796 18.4093679,5.9311676 18.4121382,6.60088209 C18.4192948,8.33299786 18.4276056,10.0651136 18.4093679,11.7969985 C18.3992103,12.7615167 18.6667729,13.6175323 19.2531482,14.3791277 C19.3939706,14.5624277 19.5366399,14.7461894 19.6559926,14.9433408 C19.8538366,15.2702335 19.8009705,15.5181733 19.5149394,15.7649588 C18.7780456,16.4007374 18.0425371,17.0383629 17.3074902,17.67645 C16.9027989,18.0275826 16.6223083,18.0227347 16.2153085,17.6799129 C15.679029,17.2281268 15.2385549,16.6964645 14.8583344,16.1110126 C14.7890775,16.0043569 14.715896,15.9002407 14.6290939,15.7725771"/></svg>
+            </div>
+           </div>
+         </div>
+         <div class="col-md-8 text-center img-fluid"> 
+           <svg id="codigobarras"
+            jsbarcode-format="auto"
+            jsbarcode-value="${element.codtrabajo}"
+            jsbarcode-textmargin="0"
+            jsbarcode-fontoptions="bold">
+         </svg>
+     
+         </div>
+       </div>
+       <div class="card-footer bg-transparent border-success">
+         <div class="row">
+            <div class="col-10">
+                <p id="nombre" class="text-break  fw-bold">${nombreEdit(element.nombre,element.apellido)}</p>
+            </div>
+            <div class="col-2 px-1">
+            </div>
+        </div>
+
+
+
+
+
+       </div>
+     </div>
+            
+            `;
+        }
+       
+      }
+      $('#myModal').modal('show');
+    }else{
+      AddLista(estacion,card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+    }
+  // var ocupado
+ //  var newArray=[];
+ // AddLista(estacion,card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA);
+ /*buscarDT.forEach(e =>{
+ 
+ // console.log(e.ubicacion);
+  if(e.ubicacion == asar){
+    var capture = false;
+   // console.log("SI");
+   // alert("Estacion ocupada por: "+nombreEdit(e.nombre,e.apellido))
+   $('#myModal').modal('show');
+  /* if(confirm("Estacion ocupada por: "+nombreEdit(e.nombre,e.apellido) +'n/' +"Quiere Moverlo") == true){}else{
+    console.log("NO");}
+   -/  capture = true;
+  }else if(capture == false){
+    if(confirm("Estacion ocupada por: "+nombreEdit(e.nombre,e.apellido) +'n/' +"Quiere Moverlo") == true){
+      capture == false
+    }else{console.log("NO");}
+    console.log("NO");
+    capture = true;
+  }
+ });*/
+
+/*
+   for (let index = 0; index < buscarDT.length; index++) {
+            const element = buscarDT[index];
+              ocupado = element.ubicacion
+                 newArray = [...ocupado];
+              console.log(newArray);
+                  if(ocupado.includes(asar) == true ){
+                   if(capture ==true){
+                       // alert("Estacion ocupada por: "+nombreEdit(element.nombre,element.apellido))
+                        capture = false
+                        
+                       
+                     } 
+                   }
+       
+   }
+
+ */ 
+}
+
+
+
+document.getElementById("btnBuscar").addEventListener('click', ()=>{
+  let card_codTrabajo = document.getElementById("domTextElement").value;
+if(card_codTrabajo != ""){
+  getValueInput();
+}else{
+  alert('inserte el codigo del asociado, por favor');
+}
+  
+});
+
+// borrar toda la pantalla
+document.getElementById("delete").addEventListener('click', ()=>{
+  let hh=  localStorage.setItem("pack1",JSON.stringify(pack1));
+  let h5=  localStorage.setItem("az5",JSON.stringify(az5));
+  let h6=  localStorage.setItem("az6",JSON.stringify(az6));
+  let h7=  localStorage.setItem("az7",JSON.stringify(az7));
+  let h8=  localStorage.setItem("az8",JSON.stringify(az8));
+  let h9=  localStorage.setItem("az9",JSON.stringify(az9));
+  let h10=  localStorage.setItem("az10",JSON.stringify(az10));
+  //console.log(Object.values(hh));
+  document.location.reload();
+});
+
+
+
+  function AddLista(selectSt,myubicacion,mylog,mypick,mystop,myiq,mysolp,myship,mynombre,myapellido,mycodtrabajo,myfotoA, mytime) {
+        //let itemsArray =localStorage.getItem('pack1') ? JSON.parse(localStorage.getItem('pack1')) : [];
+         let itemsArray =localStorage.getItem(selectSt) ? JSON.parse(localStorage.getItem(selectSt)) : [];
+         //let itemsArray =[];
+         let dff ={ubicacion:myubicacion ,log:mylog, pick:mypick, stop:mystop, iq:myiq, solp:mysolp, ship:myship, nombre:mynombre, apellido:myapellido, codtrabajo:mycodtrabajo, fotoA:myfotoA, time:mytime};
+        // let dff ={ubicacion:"11-00" ,log: "alogt2020inz",  nombre:"marisa", apellido: "castro", codtrabajo: "a12345678998764321", fotoA:"a"};
+        itemsArray.push(dff);
+        localStorage.setItem(selectSt, JSON.stringify(itemsArray));
+        //localStorage.setItem('pack1', JSON.stringify(itemsArray));
+      
+    }
+
+    
+ 
+  const getValueInput = () =>{
+    let inputValue = document.getElementById("domTextElement").value; 
+    if(inputValue == ""){}else{
+    //  let datosLocar = JSON.parse(localStorage.getItem(inputValue));
+      
+ let users = localStorage.getItem('azPackUser')
+ users = JSON.parse(users)
+ //console.log(users[inputValue].nombre);
+ const UserName = users[inputValue].nombre;
+ const UserApellido = users[inputValue].apellido;
+ const UserFoto = users[inputValue].fotoA;
+
+ document.getElementById("Bnombre").innerHTML = nombreEdit(UserName,UserApellido) // UserName +' '+UserApellido;
+ document.getElementById("Bmifoto").innerHTML ='<img  class="card-img-top" src="img/'+`${UserFoto}`+'.jpeg" />';
+
+    }
+   
+ }
+
+
+  function EliminarItems(params){
+    document.getElementById("general").innerHTML="";
+    var mypantallaX = document.getElementById("pantalla");
+    var vl = mypantallaX.options[mypantallaX.selectedIndex];
+    var valorBuscado = vl.value;
+    const f = mypantallaX.options = vl.value;
+
+
+  var datoEliminador=localStorage.getItem(valorBuscado)
+    var araystorage=JSON.parse(datoEliminador)
+    let mykey =Object.keys(araystorage); 
+    //let valores = document.getElementById("indexCard").value;
+   // console.log(valores);
+    araystorage.splice(params,1);
+    localStorage.setItem(valorBuscado,JSON.stringify(araystorage));
+    datoslocales(f)  
+   // document.location.reload();
+   totalItem();
+ 
+}
+
+
+
+  function datoslocales(vista){
+      let datosLeerX = JSON.parse(localStorage.getItem(vista));
+    //let mykey =Object.keys(vista);
+
+  
+      datosLeerX.forEach((d,index) =>{
+       // console.log('---------'+localStorage.key(index)); btnPicks btnStop d-grid gap-2 d-md-flex
+        var mykays = localStorage.key(index);
+   // console.log(d);
+    
+     var vistaPantall =  document.getElementById("general").innerHTML +=`
+       <div class="card border-success m-1" style="max-width: 15rem;">
+       <div class="card-header bg-transparent border-success">
+                <div class="d-md-flex justify-content-md-center bg-danger rounded-2 ubicacionClass">
+                  <span id="estacionsX" class="estacions">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 448 512"><path  fill="#FFF" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                    ${d.ubicacion}
+                  </span>
+                  <span class="px-3"></span>
+                  <span type="button" id="estacionsX" class="estacions">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 512 512"><path  fill="#FFF"  d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
+                    ${d.time}
+                    </span>
+                </div>
+
+         <div class="row ">
+           <div class=" text-center">
+            <p id="loginID" class="mb-0">${d.log}</p>
+           </div>
+         </div>
+       </div>
+       <div class="row text-success">
+         <div class="col-md-4" >
+           <div id="contendorImg" class="img-fluid rounded-start">
+            <!--<div id="mifoto"><img  id="imgsx" src="img/${d.fotoA}.jpeg" /></div>-->
+            <div id="mifoto">    
+              <svg class="mt-3"  width="50px" height="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#F90" fill-rule="evenodd" d="M11.9924596,23.9397465 C8.83711397,23.9185077 6.03567124,22.8789612 3.53203329,20.9850151 C2.63838806,20.3088366 1.82646601,19.5437784 1.08564773,18.7032301 C1.0593301,18.6732188 1.01408224,18.6445926 1.01108111,18.6122727 C0.999538287,18.4963828 1.00253942,18.3793386 1,18.2627561 C1.10019169,18.278916 1.21815932,18.2662189 1.29780479,18.3156222 C1.96751928,18.7327798 2.61183957,19.1935692 3.29817573,19.5802537 C5.2872347,20.7005999 7.41480753,21.4266434 9.67581537,21.7720046 C10.8557226,21.9520726 12.0409395,22.0114027 13.2256946,21.9426075 C15.4894728,21.8114811 17.6530592,21.2481914 19.7120677,20.2936001 C20.0373444,20.1428508 20.3561571,19.9780193 20.6756624,19.8152656 C20.8303362,19.7363127 20.9829323,19.7039928 21.1142896,19.8425066 C21.2530343,19.9886387 21.247032,20.165013 21.1503032,20.3279977 C21.0948977,20.4217254 21.0106351,20.5020634 20.9279885,20.5757066 C19.0869085,22.2092467 16.9334797,23.2123179 14.5316495,23.6788787 C13.7001046,23.8404782 12.8480135,23.8958838 12.0051567,24 C12.0010013,23.9799155 11.996615,23.959831 11.9924596,23.9397465 M20.882048,18.8454608 C20.4263375,18.8890927 19.9207619,18.9387268 19.4149554,18.9848981 C19.3041444,18.9950558 19.1914864,19.0015197 19.0806753,18.9948249 C18.9532426,18.9872066 18.9329272,18.9087155 19.0026459,18.8159112 C19.0442,18.7605056 19.1065313,18.718028 19.1653996,18.6783207 C19.7005248,18.3191081 20.3062921,18.1618949 20.9339907,18.0787866 C21.5298312,17.9998337 22.124979,18.0183022 22.7074298,18.1743612 C23.1005783,18.2796317 23.186226,18.3269573 23.1569073,18.7845147 C23.0793395,19.9902778 22.691039,21.086615 21.8167857,21.9673322 C21.7719996,22.0125801 21.7297528,22.0707559 21.6743473,22.0926873 C21.6004732,22.1217752 21.5148255,22.1213135 21.4342566,22.1335489 C21.4361035,22.0601365 21.4208669,21.9809528 21.4427983,21.9142353 C21.6512617,21.2800727 21.8689593,20.6489112 22.0762683,20.0145177 C22.1178225,19.8873158 22.1335207,19.750418 22.1494498,19.6165213 C22.2002382,19.1887443 22.0291736,18.9735861 21.575079,18.9070995 C21.3631528,18.8761647 21.1479946,18.8683156 20.882048,18.8454608 M13.9965473,9.42010077 C13.1377614,9.41525279 12.3166051,9.45242067 11.5310007,9.71582785 C11.142931,9.84603088 10.7495517,10.0110932 10.4155024,10.2426422 C9.49276931,10.8818837 9.25267863,11.8334739 9.32863039,12.8935666 C9.36879941,13.4550094 9.53755546,13.9746672 9.95171189,14.381898 C10.5401649,14.9604242 11.5307698,15.0363759 12.3260702,14.5663522 C13.0193321,14.1565821 13.4325651,13.5242663 13.7008203,12.7873726 C14.0960465,11.7021166 13.9716148,10.5713818 13.9965473,9.42010077 M14.6290939,15.7725771 C14.3204389,16.0535293 14.0353312,16.3183217 13.744683,16.5768809 C12.627107,17.5707178 11.3066083,18.0146547 9.82427914,18.0444352 C9.01951364,18.0605951 8.22929209,17.9998799 7.47600757,17.7023059 C6.13427002,17.1720287 5.2787161,16.1915815 4.93173889,14.8002098 C4.5009608,13.0722494 4.64640035,11.4084672 5.66886346,9.89797358 C6.4246874,8.7815519 7.51779258,8.11783967 8.77988467,7.71153236 C9.86283216,7.36293915 10.983871,7.2101122 12.1092961,7.08406459 C12.726837,7.01480766 13.3450705,6.953169 13.9928536,6.88506635 C13.9734617,6.11169732 14.0833494,5.33578887 13.8116313,4.5880449 C13.5708481,3.92571782 13.0622714,3.58520459 12.3976357,3.43283935 C11.3913326,3.20221378 10.250671,3.57758633 9.70977435,4.37103986 C9.52624349,4.64044931 9.41404727,4.9684963 9.31547158,5.28407703 C9.17649601,5.72870651 8.97195721,5.87345349 8.51024436,5.81850966 C7.60782659,5.71162313 6.70333111,5.62297427 5.80091334,5.51747288 C5.35328272,5.46483761 5.17575413,5.20997212 5.26301786,4.77503861 C5.65986006,2.79567561 6.80629307,1.4123839 8.67207471,0.684262729 C10.8742142,-0.174984891 13.1252952,-0.241702398 15.3569843,0.578992199 C17.2063751,1.25909523 18.2221434,2.61445331 18.3574252,4.59243118 C18.402904,5.26006796 18.4093679,5.9311676 18.4121382,6.60088209 C18.4192948,8.33299786 18.4276056,10.0651136 18.4093679,11.7969985 C18.3992103,12.7615167 18.6667729,13.6175323 19.2531482,14.3791277 C19.3939706,14.5624277 19.5366399,14.7461894 19.6559926,14.9433408 C19.8538366,15.2702335 19.8009705,15.5181733 19.5149394,15.7649588 C18.7780456,16.4007374 18.0425371,17.0383629 17.3074902,17.67645 C16.9027989,18.0275826 16.6223083,18.0227347 16.2153085,17.6799129 C15.679029,17.2281268 15.2385549,16.6964645 14.8583344,16.1110126 C14.7890775,16.0043569 14.715896,15.9002407 14.6290939,15.7725771"/></svg>
+            </div>
+           </div>
+         </div>
+         <div class="col-md-8 text-center img-fluid"> 
+           <svg id="codigobarras"
+            jsbarcode-format="auto"
+            jsbarcode-value="${d.codtrabajo}"
+            jsbarcode-textmargin="0"
+            jsbarcode-fontoptions="bold">
+         </svg>
+     
+         </div>
+       </div>
+
+
+
+       <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
+        <!--div id="copia"> </div-->
+         <div  class="icontop">
+          <svg class="iconsvg-solp ${d.solp}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path  d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/>
+          </svg><span class="spanSvg ${d.solp}">SOLP</span>
+         </div>
+         <div class="icontop">
+          <svg class="iconsvg-iq ${d.iq}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+            <path  d="M192 0c-41.8 0-77.4 26.7-90.5 64H64C28.7 64 0 92.7 0 128V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H282.5C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM112 192H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/>
+          </svg><span class="spanSvg ${d.iq}">IQS</span>
+         </div>
+
+         <div class="icontop">
+           <svg class="iconsvg-stop ${d.stop}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+             <path  d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/>
+           </svg><span  class="spanSvg ${d.stop}">STOP</span>
+         </div>
+
+         <div id="pickID" class="icontop">   
+            <svg class="iconsvg-pick ${d.pick}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+             <path  d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
+            </svg><span  class="spanSvg ${d.pick}">PICK</span>
+         </div>
+
+         <div id="" class="icontop">
+            <svg class="iconsvg-ship ${d.ship}"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+             <path  d="M207.1 237.4L151.2 69.7C168.6 79.7 192.6 88 224 88s55.4-8.3 72.8-18.3L226.5 280.6c-1.6 4.9-2.5 10-2.5 15.2V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V270.5c0-9.5-2.8-18.7-8.1-26.6l-47.9-71.8c-5.3-7.9-8.1-17.1-8.1-26.6V128 54.3 48c0-26.5-21.5-48-48-48h-4.5c-.2 0-.4 0-.6 0c-.4 0-.8 0-1.2 0C311 0 295.7 9.7 285.7 18.8C276.4 27.2 257.2 40 224 40s-52.4-12.8-61.7-21.2C152.3 9.7 137 0 118.3 0c-.4 0-.8 0-1.2 0c-.2 0-.4 0-.6 0H112C85.5 0 64 21.5 64 48v6.3V128v17.5c0 9.5-2.8 18.7-8.1 26.6L8.1 243.9C2.8 251.8 0 261.1 0 270.5V464c0 26.5 21.5 48 48 48H176c9.9 0 19-3 26.7-8.1C195.9 492.2 192 478.5 192 464V295.8c0-8.6 1.4-17.1 4.1-25.3l11-33.1zM347.3 356.7l48 48c6.2 6.2 6.2 16.4 0 22.6s-16.4 6.2-22.6 0l-48-48c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0zm-294.6 48l48-48c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6l-48 48c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6z"/>
+            </svg><span  class="spanSvg ${d.ship}">SHIP</span>
+         </div>
+
+       </div>
+
+
+
+       <div class="card-footer bg-transparent border-success">
+         <div class="row">
+            <div class="col-10">
+                <p id="nombre" class="text-break  fw-bold">${nombreEdit(d.nombre,d.apellido)}</p>
+            </div>
+            <div class="col-2 px-1">
+              <button id="btnDelete" class="btn btn-ms btn-danger"  onclick="EliminarItems(${index})" type="button">
+                <svg  xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 448 512">
+                  <path fill="#FFF" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/>
+                </svg>
+              </button>
+            </div>
+        </div>
+
+
+
+
+
+       </div>
+     </div>
+       
+       `;
+       // JsBarcode("#codigobarras",x.codtrabajo,{ width: 1 }); 
+      JsBarcode("#codigobarras").init();
+     // vista="";
+     
+
+      
+      ///$( "#general" ).load(window.location.href + " #general" );
+    });
+
+
+  
+
+    //cambiarColor(vista)  ;
+  }
+
+  function nombreEdit(n,a){
+  //{item.nombre.split(" ")[0].toUpperCase()+" "+item.nombre.split(" ")[1].charAt(0).toUpperCase()}
+  //{item.nombre.charAt(0).toUpperCase()+item.nombre.slice(1).toLowerCase()}
+  const priNombre = n.split(" ")[0]; //yunior
+  const priLpNombre = priNombre.charAt(0).toUpperCase()//Y
+  const rectNombre = priNombre.slice(1).toLowerCase(); //unior
+  const completoNombre = priLpNombre+rectNombre //Yunior
+
+  const segNombre = n.split(" ")[1]; // prospero
+  if (segNombre == null) {
+    //console.log(segNombre);
+    return completoNombre;
+  }else{
+  const priLsNombre = segNombre.substring(0,3); //PRO
+  
+  const priLsNombrec = priLsNombre.charAt(0).toUpperCase()//P
+  const rectSNombre = priLsNombre.slice(1).toLowerCase(); //ro
+  //const completoSNombres = priLsNombrec+rectSNombre
+  const completoSNombres = priLsNombrec
+
+    ///primer apellido
+  const priApellido = a.split(" ")[0]; //yunior
+  const priLApellido = priApellido.charAt(0).toUpperCase()//Y
+  const rectApellido = priApellido.slice(1).toLowerCase(); //unior
+  const completoApellido = priLApellido+rectApellido //Yunior
+ 
+  const resultado = completoNombre +" "+ completoSNombres+". "+completoApellido;
+
+return resultado;
+}
+}
+
+</script>
 </html>
