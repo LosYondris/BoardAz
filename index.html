@@ -434,12 +434,12 @@ option:hover {
       
             <!-- Modal body -->
             <div class="modal-body">
-              <div class="row g-2 align-items-center mb-1">
+              <!-- <div class="row g-2 align-items-center mb-1">
                 <div class="col-auto"><label class="col-form-label">Login</label></div>
                 <div class="col-auto"> <input type="text" class="form-control form-control-sm" id="Logintemp" aria-describedby="emailHelp"></div>
                 <div class="col-auto"><label class="col-form-label">Cod</label></div>
                 <div class="col-auto"> <input type="text" class="form-control form-control-sm" id="codtemp" aria-describedby="emailHelp"></div>
-              </div>
+              </div> -->
 
               <form>
                 <div class="mb-1">
@@ -447,22 +447,30 @@ option:hover {
                   <input type="text" class="form-control form-control-sm" id="nombretemp" aria-describedby="emailHelp">
                   <div id="emailHelp" class="form-text"></div>
                 </div>
-                <div class="mb-1">
-                  <label for="exampleInputEmail1" class="form-label">Apellido</label>
-                  <input type="text" class="form-control form-control-sm" id="apellidotemp" aria-describedby="emailHelp">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Login</label>
+                  <input type="text" class="form-control form-control-sm" id="Logintemp" aria-describedby="emailHelp">
                   <div id="emailHelp" class="form-text"></div>
                 </div>
-                <!-- <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Departamento</label>
-                  <select id="DptDondeViene" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                  <option selected>De donde vines</option>
-                  <option value="Picking">Picking</option>
-                  <option value="Solp">Solp</option>
-                  <option value="Chip">Chip</option>
-                  <option value="IQs">IQs</option>
-                  <option value="Stop">Stop</option>
+                <div class="mb-3">
+                  <!-- <label for="exampleInputEmail1" class="form-label">LINE</label> -->
+                  <select id="DptLine" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option selected>LINE</option>
+                    <option value="az5">LINE 05</option>
+                    <option value="az6">LINE 06</option>
+                    <option value="az7">LINE 07</option>
+                    <option value="az8">LINE 08</option>
+                    <option value="az9">LINE 09</option>
+                    <option value="az10">LINE 10</option>
+                    <option value="pack1">LINE 11-12</option>
                   </select>
-                </div> -->
+                </div>
+                <div class="mb-3">
+                  <!-- <label for="exampleInputEmail1" class="form-label">Departamento</label> -->
+                  <select id="DptLineStacion" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option selected>De donde vines</option>
+                  </select>
+                </div>
                 <div class="mt-3">
                   <label for="exampleInputEmail1" class="form-label">Permisos</label>
                 </div>
@@ -647,7 +655,7 @@ mypantalla.addEventListener('change',()=>{
 
  }else{
   //listaUno = document.getElementById("IdUbicacion");
- // console.log('works: '+ultimoNombre);
+ // console.log('worksXX: '+ultimoNombre);
   midata =  eval('station'+ultimoNombre);
   midataIndex = midata.length;
  for (let e = 0; e < midataIndex; e++) {
@@ -662,6 +670,41 @@ mypantalla.addEventListener('change',()=>{
  
 });
 
+
+
+var SelectModelTemoral = document.getElementById("DptLine");
+var  ModalStacion = document.getElementById("DptLineStacion");
+SelectModelTemoral.addEventListener("change", function(){
+  
+  ModalStacion.innerHTML="";
+  var vlModal = SelectModelTemoral.options[SelectModelTemoral.selectedIndex];
+
+
+  if(vlModal.value == 'pack1'){
+    midataModal =  eval(station1112);
+    midataIndexs = midataModal.length;
+ for (let e = 0; e < midataIndexs; e++) {
+      var optModal = document.createElement('option');
+      optModal.innerHTML = 'station: '+midataModal[e];
+      optModal.value = midataModal[e];
+      ModalStacion.appendChild(optModal);
+   }
+
+  }else{
+    var nombModal = vlModal.text
+    var ultimoNombreModal = nombModal.slice(5);
+    midataModal =  eval('station'+ultimoNombreModal);
+    midataIndexs = midataModal.length;
+ for (let e = 0; e < midataIndexs; e++) {
+    var optModal = document.createElement('option');
+    optModal.innerHTML = 'station: '+midataModal[e];
+    optModal.value = midataModal[e];
+    ModalStacion.appendChild(optModal);
+   }
+  }
+
+
+});
 
 document.getElementById('Refrescars').addEventListener('click', ()=>{
   document.location.reload();
@@ -686,6 +729,10 @@ if(card_codTrabajo != ""){
   let cship= users[card_codTrabajo].ship
   let ctime= "00:00"
 
+  var ub = document.getElementById("IdUbicacion");
+   var dts = ub.options[ub.selectedIndex];
+   var asar = ub.options = dts.value;
+
     if(card_ubicacions != null){
             //var num = card_ubicacions.substring(0,card_ubicacions.length -3 );
             var lineaUbicado = document.getElementById("pantalla");
@@ -695,29 +742,29 @@ if(card_codTrabajo != ""){
            // console.log(num);
             switch (num) {
               case '05':
-                NoRepetir('az5',card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime)
+                NoRepetir('az5',asar, card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime)
                 // AddLista('az5',card_ubicacions, clogin, cpick, cstop,ciq, csolp, cnombre, capellido, ccodtrabajo, cfotoA);
                 break;
               case '06':
-                NoRepetir('az6',card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+                NoRepetir('az6',asar, card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
                 break;
               case '07':
-                NoRepetir('az7',card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+                NoRepetir('az7',asar, card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
                 break;
               case '08':
-                NoRepetir('az8',card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+                NoRepetir('az8',asar, card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
                 break;
               case '09':
-                NoRepetir('az9',card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+                NoRepetir('az9',asar, card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
                 break;
               case '10':
-                NoRepetir('az10',card_ubicacions,clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+                NoRepetir('az10',asar, card_ubicacions,clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
                 break;
               case '11':
-                NoRepetir('pack1',card_ubicacions,clogin,cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+                NoRepetir('pack1',asar, card_ubicacions,clogin,cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
                 break;
               case '12':
-                NoRepetir('pack1',card_ubicacions,clogin,cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
+                NoRepetir('pack1',asar, card_ubicacions,clogin,cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime);
                 break;
               default:
                  // document.location.reload();
@@ -742,32 +789,18 @@ if(card_codTrabajo != ""){
 
 
 
-function New_BD_localStorage(Tcodigo,Tlogin,Tpick,Tstop,Tiq,Tsolp,Tship,Tnombre,Tapellido,TfotoA,) {
-/*
-const azPackUserX={
-  Tcodigo:{login:Tlogin, pick:Tpick, stop:Tstop, iq:Tiq, solp:Tsolp, ship:Tship, nombre:Tnombre, apellido:Tapellido, codtrabajo:Tcodigo, fotoA:TfotoA},
-}*/
- 
- //localStorage.setItem("azPackUser",JSON.stringify(azPackUser));
-
-
-  let itemsArrayX =localStorage.getItem("azPackUser") ? JSON.parse(localStorage.getItem("azPackUser")) : [];
-  ///let dff ={ubicacion:myubicacion ,log:mylog, pick:mypick, stop:mystop, iq:myiq, solp:mysolp, ship:myship, nombre:mynombre, apellido:myapellido, codtrabajo:mycodtrabajo, fotoA:myfotoA, time:mytime};
-  itemsArrayX.push({Tcodigo:{login:Tlogin, pick:Tpick, stop:Tstop, iq:Tiq, solp:Tsolp, ship:Tship, nombre:Tnombre, apellido:Tapellido, codtrabajo:Tcodigo, fotoA:TfotoA}});
-  localStorage.setItem(azPackUser, JSON.stringify(itemsArrayX));
-
-}
-
 document.getElementById("GuardarTemporary").addEventListener('click', ()=>{
+  document.getElementById("general").innerHTML="";
   var Logintemp = document.getElementById("Logintemp").value;
-  var codtemp = document.getElementById("codtemp").value;
   var nombretemp = document.getElementById("nombretemp").value;
-  var apellidotemp = document.getElementById("apellidotemp").value;
 
-  var DptDondeViene = document.getElementById("DptDondeViene");
-    var Dpt = DptDondeViene.options[DptDondeViene.selectedIndex];
-    var valorBuscado = Dpt.text;
-    //const f = DptDondeViene.options = vl.value;
+    var DptLineStacion = document.getElementById("DptLineStacion");
+    var Dpt = DptLineStacion.options[DptLineStacion.selectedIndex];
+    var DptLineStacionModal = Dpt.value;
+
+    var DptLine = document.getElementById("DptLine");
+    var Dpt = DptLine.options[DptLine.selectedIndex];
+    var DptLineValor = Dpt.value;
 
     var checkboxPiking = document.getElementById("checkboxPiking").value;
     var checkboxPack = document.getElementById("checkboxPack").value;
@@ -777,17 +810,19 @@ document.getElementById("GuardarTemporary").addEventListener('click', ()=>{
     var checkboxStop = document.getElementById("checkboxStop").value;
 
 
- // alert('va bien'+ Logintemp+'-'+codtemp+'-'+nombretemp+'-'+apellidotemp+'-'+Dpt.value);
- console.log(codtemp,Logintemp,checkboxPiking,checkboxStop,checkboxIQs,checkboxSolp,checkboxChip,nombretemp,apellidotemp,codtemp);
- // New_BD_localStorage(codtemp,Logintemp,checkboxPiking,checkboxStop,checkboxIQs,checkboxSolp,checkboxChip,nombretemp,apellidotemp,codtemp)
-})
+
+    NoRepetir(DptLineValor,"", DptLineStacionModal, Logintemp, checkboxPiking, checkboxStop, checkboxIQs, checkboxSolp, checkboxChip, nombretemp,"00:01", "00:02", "00:03", "00:04")
+    totalItem();
+  ///  $("Temporarys").modal("toggle");
+    $('#Temporarys').modal('toggle');
+  })
 
 
-function NoRepetir(estacion,card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime) {
+function NoRepetir(estacion,asar, card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime) {
 
-   var ub = document.getElementById("IdUbicacion");
-   var dts = ub.options[ub.selectedIndex];
-   var asar = ub.options = dts.value;
+  //  var ub = document.getElementById("IdUbicacion");
+  //  var dts = ub.options[ub.selectedIndex];
+  //  var asar = ub.options = dts.value;
 
    let buscarDT = JSON.parse(localStorage.getItem(estacion));
    if(buscarDT == ""){
