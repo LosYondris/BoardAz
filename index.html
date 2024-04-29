@@ -811,7 +811,7 @@ document.getElementById("GuardarTemporary").addEventListener('click', ()=>{
 
 
 
-    NoRepetir(DptLineValor,"", DptLineStacionModal, Logintemp, checkboxPiking, checkboxStop, checkboxIQs, checkboxSolp, checkboxChip, nombretemp,"00:01", "00:02", "00:03", "00:04")
+   NoRepetir(DptLineValor,"", DptLineStacionModal, Logintemp, checkboxPiking, checkboxStop, checkboxIQs, checkboxSolp, checkboxChip, nombretemp,"", Logintemp, "00:33", "00:44")
     totalItem();
   ///  $("Temporarys").modal("toggle");
     $('#Temporarys').modal('toggle');
@@ -1048,7 +1048,8 @@ document.getElementById("delete").addEventListener('click', ()=>{
                   <span class="px-3"></span>
                   <span type="button" id="estacionsX" class="estacions">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 512 512"><path  fill="#FFF"  d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
-                    ${d.time}
+                      ${d.time}
+                      
                     </span>
                 </div>
 
@@ -1153,6 +1154,10 @@ document.getElementById("delete").addEventListener('click', ()=>{
     //cambiarColor(vista)  ; 
   }
 
+function timeLeaver(){
+  alert('Hola');
+}
+
   function nombreEdit(n,a){
   //{item.nombre.split(" ")[0].toUpperCase()+" "+item.nombre.split(" ")[1].charAt(0).toUpperCase()}
   //{item.nombre.charAt(0).toUpperCase()+item.nombre.slice(1).toLowerCase()}
@@ -1184,6 +1189,7 @@ document.getElementById("delete").addEventListener('click', ()=>{
 return resultado;
 }
 }
+
 
 </script>
 </html>
