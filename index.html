@@ -74,7 +74,13 @@ option:hover {
     height: 14px;
     margin-bottom: 5px;
   }
-
+  .iconoTime{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    fill: #198754 !important;
+  }
+  
 
  .iconsvg-stop{
   width: 14px;
@@ -195,7 +201,7 @@ option:hover {
 
 
 </head>
-<body class="bg-dark">
+<body id="myBody" class="bg-dark">
 
   <nav class="navbar text-decoration-none bg-success">
     <div class="container-fluid">
@@ -229,15 +235,15 @@ option:hover {
           </button>
         </li>
         <li class="nav-item p-2">
-          <button id="delete" class="btn btn-outline-light">
-            <svg xmlns="http://www.w3.org/2000/svg" class="iconnv" viewBox="0 0 448 512"><path fill="#F90" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
-            Delete all
-          </button>
-        </li>
-        <li class="nav-item p-2">
           <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#Temporarys">
             <svg xmlns="http://www.w3.org/2000/svg"  class="iconnv" viewBox="0 0 640 512"><path fill="#F90" d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg>
             Temporarys
+          </button>
+        </li>
+        <li class="nav-item p-2">
+          <button id="delete" class="btn btn-outline-light">
+            <svg xmlns="http://www.w3.org/2000/svg" class="iconnv" viewBox="0 0 448 512"><path fill="#F90" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
+            Delete all
           </button>
         </li>
       </ul>
@@ -394,7 +400,7 @@ option:hover {
       </div>
       
       <!-- The Modal -->
-      <div class="modal" id="myModal">
+      <div class="modal fade" id="myModal" data-bs-keyboard="false" data-bs-backdrop="static">
         <div class="modal-dialog">
           <div class="modal-content modal-sm p-2">
       
@@ -416,13 +422,12 @@ option:hover {
       
           </div>
         </div>
-
-
-        <!-- -------------------------modal-anadir-persona--------------------------------------- -->
-      
       </div>
+      <!-- -------------------------modal-anadir-persona--------------------------------------- -->
+      
+    
       <!-- The Modal -->
-      <div class="modal " id="Temporarys">
+      <div class="modal fade" id="Temporarys" data-bs-keyboard="false" data-bs-backdrop="static">
         <div class="modal-dialog ">
           <div class="modal-content  p-2 ">
       
@@ -513,8 +518,81 @@ option:hover {
       
           </div>
         </div>
-
+      </div>
       <!-- ---------------------fina--del--modal------------------------------------------->
+           
+
+            <!-- The Modal Time-->
+      <div class="modal fade" id="myTimeModelss" data-bs-keyboard="false" data-bs-backdrop="static">
+          <div class="modal-dialog">
+                <div class="modal-content modal-sm p-2">
+            
+                  <!-- Modal Header -->
+                  <div class="modal-header bg-success text-light">
+                    <h4 id="" class="modal-title">TIME LEAVE</h4>
+                     <button type="button" class="btn-close bg-light text-light" data-bs-dismiss="modal"></button>
+                  </div>
+            
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <div class="text-center">
+                      <svg xmlns="http://www.w3.org/2000/svg"  class="iconoTime" viewBox="0 0 448 512"><path d="M176 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h16V98.4C92.3 113.8 16 200 16 304c0 114.9 93.1 208 208 208s208-93.1 208-208c0-41.8-12.3-80.7-33.5-113.2l24.1-24.1c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L355.7 143c-28.1-23-62.2-38.8-99.7-44.6V64h16c17.7 0 32-14.3 32-32s-14.3-32-32-32H176zM288 204c28.7 0 52 23.3 52 52v96c0 28.7-23.3 52-52 52s-52-23.3-52-52V256c0-28.7 23.3-52 52-52zm-12 52v96c0 6.6 5.4 12 12 12s12-5.4 12-12V256c0-6.6-5.4-12-12-12s-12 5.4-12 12zM159.5 244c-5.4 0-10.2 3.5-11.9 8.6l-.6 1.7c-3.5 10.5-14.8 16.1-25.3 12.6s-16.1-14.8-12.6-25.3l.6-1.7c7.2-21.5 27.2-35.9 49.8-35.9c29 0 52.5 23.5 52.5 52.5v2.2c0 13.4-4.9 26.4-13.8 36.4l-39 43.9c-6.2 7-10 15.7-10.9 24.9H192c11 0 20 9 20 20s-9 20-20 20H128c-11 0-20-9-20-20V368.3c0-20.6 7.5-40.4 21.2-55.8l39-43.9c2.4-2.7 3.7-6.2 3.7-9.8v-2.2c0-6.9-5.6-12.5-12.5-12.5z"/></svg>
+                    </div>
+                    <div class=" d-flex align-items-start">
+
+                    <!-- <select class="form-select multiple form-select-lg mb-3" aria-label=".multiple example"> -->
+                      <select id="selectTimeHora" class="form-select form-select-lg fw-bold" size="1" aria-label=" select example">
+                      <option selected>00</option>
+                      <option value="1">01</option>
+                      <option value="2">02</option>
+                      <option value="3">03</option>
+                      <option value="1">04</option>
+                      <option value="2">05</option>
+                      <option value="3">06</option>
+                      <option value="1">07</option>
+                      <option value="2">08</option>
+                      <option value="3">09</option>
+                      <option value="1">10</option>
+                      <option value="2">11</option>
+                      <option value="3">12</option>
+                      <option value="1">13</option>
+                      <option value="2">14</option>
+                      <option value="3">15</option>
+                      <option value="1">16</option>
+                      <option value="2">17</option>
+                      <option value="3">18</option>
+                      <option value="1">19</option>
+                      <option value="2">20</option>
+                      <option value="3">21</option>
+                      <option value="3">22</option>
+                      <option value="1">23</option>
+                      <option value="2">24</option>
+                    </select>
+                    <div>
+                      <p class="p-2 fw-bold">:</p>
+                    </div>
+                    <select id="selectTimeMinuto" class="form-select form-select-lg fw-bold" size="1" aria-label=" select example">
+                      <option selected>00</option>
+                      <option value="1">10</option>
+                      <option value="2">20</option>
+                      <option value="3">30</option>
+                      <option value="1">40</option>
+                      <option value="2">50</option>
+                    </select>
+
+                  </div>
+                 
+                  </div>
+                  <button id="btnSaveTime" type="button" class="btn btn-success mx-5">Save</button>
+            
+                </div>
+          </div>
+      </div>
+      <!-- -------------------------modal-anadir-persona--------------------------------------- -->
+            
+            
+        
+
 </body>
 
 <script>
@@ -811,8 +889,14 @@ document.getElementById("GuardarTemporary").addEventListener('click', ()=>{
 
 
 
-   NoRepetir(DptLineValor,"", DptLineStacionModal, Logintemp, checkboxPiking, checkboxStop, checkboxIQs, checkboxSolp, checkboxChip, nombretemp,"", Logintemp, "00:33", "00:44")
+   NoRepetir(DptLineValor,"", DptLineStacionModal, Logintemp, checkboxPiking, checkboxStop, checkboxIQs, checkboxSolp, checkboxChip, nombretemp,"", Logintemp, "00:33", "00:00")
     totalItem();
+
+  var sectx = document.getElementById("pantalla");
+  var vlx = sectx.options[sectx.selectedIndex];
+  const fx = sectx.options = vlx.value;
+ //// console.log(f +' '+vl.text);
+  datoslocales(fx) 
   ///  $("Temporarys").modal("toggle");
     $('#Temporarys').modal('toggle');
   })
@@ -1026,6 +1110,58 @@ document.getElementById("delete").addEventListener('click', ()=>{
 }
 
 
+function ActualizarPantalla() {
+  var sectxpantalla = document.getElementById("pantalla");
+  var vlxpantalla = sectxpantalla.options[sectxpantalla.selectedIndex];
+  const fxpantalla = sectxpantalla.options = vlxpantalla.value;
+  datoslocales(fxpantalla) 
+  
+ // document.location.reload();
+}
+
+var bbmw;
+function ModalRelo(indx) {
+$('#myTimeModelss').modal('show');
+bbmw = indx
+//console.log(bbmw);
+}
+
+document.getElementById("btnSaveTime").addEventListener('click', ()=>{
+  EditarTime(bbmw);
+  //console.log(bbmw);
+})
+
+function EditarTime(m) {
+  document.getElementById("general").innerHTML="";
+     var tvpantalla = document.getElementById("pantalla");
+     var dtX = tvpantalla.options[tvpantalla.selectedIndex];
+     var valorBuscado = dtX.value;
+    // const fXz = tvpantalla.options = dtX.value;
+
+    // ---------recogindo los valores del select de hora
+    var TimeHora = document.getElementById("selectTimeHora");
+    var dTimeh = TimeHora.options[TimeHora.selectedIndex];
+    var ValorTimeh = dTimeh.text;
+
+    // ---------recogindo los valores del select de minuto
+    var TimeMinuto = document.getElementById("selectTimeMinuto");
+    var dTimem = TimeMinuto.options[TimeMinuto.selectedIndex];
+    var ValorTimem = dTimem.text;
+
+    var datoEliminador=localStorage.getItem(valorBuscado)
+    var araystorage=JSON.parse(datoEliminador)
+    let mykey =Object.keys(araystorage);
+    var dfs =araystorage[m];
+     dfs.time = ValorTimeh+":"+ValorTimem
+
+   console.log(dfs);
+    localStorage.setItem(valorBuscado,JSON.stringify(araystorage));
+  
+    
+    ActualizarPantalla()
+    $('#myTimeModelss').modal('hide');
+}
+
 
   function datoslocales(vista){
       let datosLeerX = JSON.parse(localStorage.getItem(vista));
@@ -1046,10 +1182,9 @@ document.getElementById("delete").addEventListener('click', ()=>{
                     ${d.ubicacion}
                   </span>
                   <span class="px-3"></span>
-                  <span type="button" id="estacionsX" class="estacions">
+                  <span type="button" id="estacionsX" class="estacions" onclick="ModalRelo(${index})"> 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 512 512"><path  fill="#FFF"  d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
-                      ${d.time}
-                      
+                    ${d.time}
                     </span>
                 </div>
 
@@ -1139,7 +1274,7 @@ document.getElementById("delete").addEventListener('click', ()=>{
      </div>
        
        `;
-       // JsBarcode("#codigobarras",x.codtrabajo,{ width: 1 }); 
+       // JsBarcode("#codigobarras",x.codtrabajo,{ width: 1 }); hidden
       JsBarcode("#codigobarras").init();
      // vista="";
      
@@ -1154,9 +1289,7 @@ document.getElementById("delete").addEventListener('click', ()=>{
     //cambiarColor(vista)  ; 
   }
 
-function timeLeaver(){
-  alert('Hola');
-}
+
 
   function nombreEdit(n,a){
   //{item.nombre.split(" ")[0].toUpperCase()+" "+item.nombre.split(" ")[1].charAt(0).toUpperCase()}
