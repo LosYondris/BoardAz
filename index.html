@@ -215,7 +215,7 @@ option:hover {
         <li class="nav-item">
           <div id="" class="btn" type="button">
             <select id="pantalla"  class="form-select me-4" aria-label="Default select example">
-              <option selected>Select work area </option>
+              <option selected>Select work area</option>
               <option value="az5">LINE 05</option>
               <option value="az6">LINE 06</option>
               <option value="az7">LINE 07</option>
@@ -880,26 +880,31 @@ document.getElementById("GuardarTemporary").addEventListener('click', ()=>{
     var Dpt = DptLine.options[DptLine.selectedIndex];
     var DptLineValor = Dpt.value;
 
-    var checkboxPiking = document.getElementById("checkboxPiking").value;
+    var checkboxPiking = document.getElementById("checkboxPiking");
     var checkboxPack = document.getElementById("checkboxPack").value;
     var checkboxChip = document.getElementById("checkboxChip").value;
     var checkboxIQs  = document.getElementById("checkboxIQs").value;
     var checkboxSolp = document.getElementById("checkboxSolp").value;
     var checkboxStop = document.getElementById("checkboxStop").value;
+    if(checkboxPiking.checked){
+      console.log('SI' );
+    }else{
+      console.log('NO');
+    }
 
-
+    $('#Temporarys').modal('toggle');
 
    NoRepetir(DptLineValor,"", DptLineStacionModal, Logintemp, checkboxPiking, checkboxStop, checkboxIQs, checkboxSolp, checkboxChip, nombretemp,"", Logintemp, "00:33", "00:00")
     totalItem();
 
-  var sectx = document.getElementById("pantalla");
-  var vlx = sectx.options[sectx.selectedIndex];
-  const fx = sectx.options = vlx.value;
- //// console.log(f +' '+vl.text);
-  datoslocales(fx) 
+
+  datoslocales(DptLineValor) 
+ /// console.log(DptLineValor);
+  
   ///  $("Temporarys").modal("toggle");
-    $('#Temporarys').modal('toggle');
-  })
+    //$('#Temporarys').modal('toggle');
+    //$('#Temporarys').modal('hide');
+})
 
 
 function NoRepetir(estacion,asar, card_ubicacions, clogin, cpick, cstop,ciq, csolp, cship, cnombre, capellido, ccodtrabajo, cfotoA, ctime) {
